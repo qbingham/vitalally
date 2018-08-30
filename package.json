@@ -1,9 +1,9 @@
 {
-  "name": "vitalally",
+  "name": "va-webapp",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qbingham/vitalally.git"
+    "url": "https://github.com/vitalally/va-webapp.git"
   },
   "scripts": {
     "start": "webpack-dev-server --open"
