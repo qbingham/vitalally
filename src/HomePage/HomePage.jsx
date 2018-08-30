@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from 'react-sidebar';
+import Rectangle from 'react-rectangle';
 import {
 	Link
 } from 'react-router-dom';
@@ -17,9 +18,12 @@ const mql = window.matchMedia(`(min-width: 800px)`);
 
 const sidebarStyles = {
     sidebar: {
-        width: 150,
+        position: "fixed",
+        width: 200,
         background: 'white'
-        
+    },
+    overlay: {
+        backgroundColor: "rgba(0,0,0,0)"
     }
 };
 
@@ -63,6 +67,7 @@ class HomePage extends React.Component {
         const { user, users } = this.props;
         return (
             <div>
+                
                 <div>
                     <Sidebar
                         sidebar={
@@ -82,13 +87,56 @@ class HomePage extends React.Component {
                     >
                     </Sidebar>
                 </div>
-                <div className="col-md-8 col-md-offset-1">
-                    <button className="btn btn-primary" onClick={() => this.onSetSidebarOpen(true)}>
-                        Open sidebar
-                    </button>
-                    <h1>Hi {user.email}!</h1>
-                    <p>You're logged in with React!!</p>
-                    <h3>All registered users:</h3>
+                <div class="row">
+                    <div className="col-md-3 col-md-offset-2">
+                        <p>Logged in as: {user.email}</p>
+                    </div>
+
+                    <div className="col-md-1 col-md-offset-1">
+                        <p onClick={() => this.onSetSidebarOpen(true)}>
+                            Sidebar
+                        </p>
+                    </div>
+             
+                    <div className="col-md-1 col-md-offset-1">
+                        <p>
+                            <Link to="/login">Logout</Link>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div className="col-md-4 col-md-offset-2">
+                        <ul className="nav-justified navbar-default">
+                            <li className="navbar-brand">GROUPS</li>
+                            <li><button className="btn btn-secondary">+ ADD GROUP </button></li>
+                        </ul>
+                    </div>
+                </div>
+                <br/>
+                <div className="row">
+                    <div className="col-md-4 col-md-offset-2">
+                        <Rectangle aspectRatio={[5, 3]}>
+                            <div style={{ background: '#F8F8F8', width: '100%', height: '80%' }} />
+                        </Rectangle>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-4 col-md-offset-2">
+                        <Rectangle aspectRatio={[5, 3]}>
+                            <div style={{ background: '#F8F8F8', width: '100%', height: '80%' }} />
+                        </Rectangle>
+                    </div>
+                </div>
+
+                
+                
+
+                    
+
+
+                    
+                    {/* <h3>All registered users:</h3>
                     {users.loading && <em>Loading users...</em>}
                     {users.error && <span className="text-danger">ERROR: {users.error}</span>}
                     {users.items &&
@@ -104,15 +152,14 @@ class HomePage extends React.Component {
                                 </li>
                             )}
                         </ul>
-                    }
-                    <p>
-                        <Link to="/login">Logout</Link>
-                    </p>
-                </div>
+                    } */}
+                
+                
             </div>
         );
     }
 }
+       
 
 function mapStateToProps(state) {
     const { users, authentication } = state;

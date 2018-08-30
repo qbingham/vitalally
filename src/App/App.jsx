@@ -40,22 +40,35 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         return (
-            <div className="jumbotron">
-                <div className="container">
-                    <div>
-                        {alert.message &&
-                            <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        }
-                        <Router history={history}>
-                            <div>
-                                <PrivateRoute exact path="/" component={HomePage} />
-                                <Route path="/login" component={LoginPage} />
-                                <Route path="/register" component={RegisterPage} />
+            <div>
+                <div className="jumbotron">
+                    <div className="container">
+                        <div>
+                            <div className="col-md-6 col-md-offset-3">
+                                {alert.message &&
+                                    <div className={`alert ${alert.type}`}>{alert.message}</div>
+                                }
                             </div>
-                        </Router>
+                            <Router history={history}>
+                                <div>
+                                    <PrivateRoute exact path="/" component={HomePage} />
+                                    <Route path="/login" component={LoginPage} />
+                                    <Route path="/register" component={RegisterPage} />
+                                </div>
+                            </Router>
+                        </div>
                     </div>
                 </div>
+                <ul class="text-center list-group">
+                    <li>
+                        <a href="http://vitalally.com/" target="_top">VitalAlly, Inc.</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/myvitally.com/" target="_top">Check out VitalAlly on LinkedIn!</a>
+                    </li>
+                </ul>
             </div>
+            
         );
     }
 }
