@@ -12,7 +12,6 @@ import {
 	userActions
 } from '../_actions';
 
-// import '../_styles/sidebar.css';
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -22,6 +21,17 @@ const sidebarStyles = {
         width: 200,
         background: 'white'
     },
+
+    content: {
+        position: "fixed",
+        top: 0,
+        left: 10000,
+        right: 0,
+        bottom: 0,
+        overflowY: "auto",
+        transition: "left .3s ease-out, right .3s ease-out"
+    },
+    
     overlay: {
         backgroundColor: "rgba(0,0,0,0)"
     }
@@ -73,11 +83,11 @@ class HomePage extends React.Component {
                         sidebar={
                         <div>
                             <ul className='list-group container'>
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#">Notifications</a></li>
-                                <li><a href="#">Messages</a></li>
-                                <li><a href="#">Care Groups</a></li>
-                                <li><a href="#">Settings</a></li>
+                                <p><a href="#"> Profile</a></p>
+                                <p><a href="#"> Notifications</a></p>
+                                <p><a href="#"> Messages</a></p>
+                                <p><a href="#"> Care Groups</a></p>
+                                <p><a href="#"> Settings</a></p>
                             </ul>
                         </div>
                         }
@@ -88,23 +98,21 @@ class HomePage extends React.Component {
                     </Sidebar>
                 </div>
                 <div class="row">
-                    <div className="col-md-3 col-md-offset-2">
+                    <div className="col-md-4 col-md-offset-2">
                         <p>Logged in as: {user.email}</p>
                     </div>
-
-                    <div className="col-md-1 col-md-offset-1">
+                    <div className="col-md-1 col-md-offset-2">
                         <p onClick={() => this.onSetSidebarOpen(true)}>
-                            Sidebar
+                            <a href="#">Sidebar</a>
                         </p>
                     </div>
-             
                     <div className="col-md-1 col-md-offset-1">
                         <p>
                             <Link to="/login">Logout</Link>
                         </p>
                     </div>
                 </div>
-
+                <br/>
                 <div class="row">
                     <div className="col-md-4 col-md-offset-2">
                         <ul className="nav-justified navbar-default">
