@@ -14,17 +14,20 @@ import {
 class Header extends React.Component {
     render() {
         return (
-            <div className="container-fluid">
-                <div className="row">
-                    <ul className="navbar navbar-default navbar-fixed-top nav-justified">
-                        <li className="navbar-brand"><a href="#">About</a></li>
-                        <li><a href="#">VitalAlly</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><Link to="/register">Sign Up</Link></li>
-                    </ul>
+            <div className="row navbar-default navbar-fixed-top">
+                <br/>
+                <div className="col-md-1 col-xs-offset-1 ">
+                    <p className="text-center"><a href="#">About</a></p>
                 </div>
-                <br/>
-                <br/>
+                <div className="col-md-1 col-xs-offset-1 ">
+                    <p className="text-center"><a href="#">VitalAlly</a></p>
+                </div>
+                <div className="col-md-1 col-xs-offset-1 ">
+                    <p className="text-center"><a href="#">Contact</a></p>
+                </div>
+                <div className="col-md-1 col-xs-offset-1 ">
+                    <p className="text-center"><Link to="/register">Sign Up</Link></p>
+                </div>
             </div>
         );
     }
